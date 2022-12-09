@@ -1,4 +1,4 @@
-const Random = () => {
+const Random = (): JSX.Element => {
   return <div>Random</div>;
 };
 
