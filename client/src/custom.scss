@@ -1,0 +1,186 @@
+// Pulse 4.3.1
+// https://bootstrap.build/app/project/iIFADbwMUkHo
+// Bootswatch
+
+// Variables ===================================================================
+$white: #fff;
+$gray-100: #fafafa;
+$gray-200: #f9f8fc;
+$gray-300: #ededed;
+$gray-400: #cbc8d0;
+$gray-500: #adb5bd;
+$gray-600: #868e96;
+$gray-700: #444;
+$gray-800: #343a40;
+$gray-900: #17141f;
+$black: #000;
+$blue: #007bff;
+$indigo: #6610f2;
+$purple: #593196;
+$pink: #e83e8c;
+$red: #fc3939;
+$orange: #fd7e14;
+$yellow: #efa31d;
+$green: #13b955;
+$teal: #20c997;
+$cyan: #009cdc;
+$primary: $purple;
+$secondary: #a991d4;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-200;
+$dark: $gray-900;
+$body-color: $gray-700;
+$dropdown-link-color: $gray-700;
+$dropdown-link-hover-color: $white;
+$dropdown-link-hover-bg: $primary;
+$navbar-dark-hover-color: rgba($white, 0.9);
+
+// Buttons =====================================================================
+
+.btn {
+  &:focus,
+  &:active,
+  &:active:focus,
+  &.active:focus {
+    outline: none;
+  }
+
+  &-secondary {
+    background-color: $white;
+    border-color: #ccc;
+    color: $gray-900;
+
+    &:hover {
+      background-color: $gray-300;
+      border-color: $gray-500;
+      color: $gray-900;
+    }
+
+    &.disabled {
+      background-color: $white;
+      border-color: lighten(#ccc, 5%);
+      color: lighten($gray-900, 5%);
+    }
+  }
+
+  &-warning {
+    color: $white;
+  }
+
+  &-primary:focus {
+    box-shadow: 0 0 5px lighten($primary, 10%);
+  }
+
+  &-secondary:focus {
+    box-shadow: 0 0 5px $gray-400;
+  }
+
+  &-success:focus {
+    box-shadow: 0 0 5px lighten($success, 10%);
+  }
+
+  &-info:focus {
+    box-shadow: 0 0 5px lighten($info, 10%);
+  }
+
+  &-warning:focus {
+    box-shadow: 0 0 5px lighten($warning, 10%);
+  }
+
+  &-danger:focus {
+    box-shadow: 0 0 5px lighten($danger, 10%);
+  }
+
+  &.disabled:focus {
+    box-shadow: none;
+  }
+}
+
+// Typography ==================================================================
+
+// Tables ======================================================================
+
+.table .thead-dark th {
+  background-color: $secondary;
+  // border-color: $table-border-color;
+}
+
+// Forms =======================================================================
+
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(100, 65, 164, 0.4);
+}
+
+// Navs ========================================================================
+
+.nav-tabs {
+  .nav-link,
+  .nav-link.active {
+    border-width: 0 0 1px 0;
+  }
+
+  .nav-link:hover,
+  .nav-link.active,
+  .nav-link.active:hover,
+  .nav-link.active:focus {
+    border-bottom: 1px solid $primary;
+  }
+
+  .nav-item + .nav-item {
+    margin-left: 0;
+  }
+}
+
+.breadcrumb {
+  &-item.active {
+    color: $gray-700;
+  }
+}
+
+// Indicators ==================================================================
+
+.badge {
+  padding-bottom: 0.4em;
+
+  &-secondary,
+  &-warning {
+    color: $white;
+  }
+}
+
+// Progress bars ===============================================================
+
+.progress {
+  height: 8px;
+}
+
+// Containers ==================================================================
+
+.list-group {
+  &-item {
+    color: rgba(255, 255, 255, 0.8);
+
+    &.active,
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+
+    &.active {
+      font-weight: bold;
+
+      &:hover {
+        // background-color: $list-group-hover-bg;
+      }
+    }
+
+    &.disabled:hover {
+      // color: $list-group-disabled-color;
+    }
+  }
+}
+
+@import "~bootstrap/scss/bootstrap";
