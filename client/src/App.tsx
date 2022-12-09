@@ -1,19 +1,24 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import Home from "./pages/Home";
+import Layout from "./pages/Layout";
+import NotFound from "./pages/NotFound";
+import Random from "./pages/Random";
+import Search from "./pages/Search";
+
+const App = (): JSX.Element => {
   return (
-    <Container>
-      <h1>Spot-Lite</h1>
-      <Button>Primary</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="success">Success</Button>
-      <Button variant="info">Info</Button>
-      <Button variant="warning">Warning</Button>
-      <Button variant="danger">Danger</Button>
-    </Container>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="search" element={<Search />} />
+          <Route path="random" element={<Random />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </div>
   );
-}
+};
 
 export default App;
