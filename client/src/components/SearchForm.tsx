@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 
-const SearchForm = (): JSX.Element => {
+interface SearchFormProps {
+  handleSearch: (searchTerm: string) => void;
+}
+
+const SearchForm = ({ handleSearch }: SearchFormProps): JSX.Element => {
   const [search, setSearch] = useState<string>("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -10,7 +14,7 @@ const SearchForm = (): JSX.Element => {
 
   const handleSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
-    console.log(`Search for ${search}.`);
+    handleSearch(search);
     setSearch("");
   };
 
