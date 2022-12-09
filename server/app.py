@@ -20,15 +20,15 @@ class Search(Resource):
         self.sp = spotipy.Spotify(auth_manager=auth)
 
     def get(self, search_term) -> None:
-        logger.info(f'Received search request for: "{search_term}"')
-        result = self.sp.search(q=search_term, type="album", limit=1, market="US")
-        logger.debug(f'Result received:')
-        logger.debug(result)
+        try:
+            result = self.sp.search(q=search_term, type="album", limit=1, market="US")
+        except Exception as err:
+            logger.error(f'{err=}')
+            return f'ERROR: {err=}', 500
         return result, 200
 
 api.add_resource(Search, '/api/search/<string:search_term>')
 
 
 if __name__ == '__main__':
-    logger.debug(f'Server starting...')
     app.run()
