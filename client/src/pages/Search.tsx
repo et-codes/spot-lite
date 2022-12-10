@@ -2,10 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 import SearchForm from "../components/SearchForm";
 
-// SpotifyApi.ArtistsAlbumsResponse
-
 const Search = (): JSX.Element => {
-  const [searchResults, setSearchResults] = useState({});
+  const [searchResults, setSearchResults] =
+    useState<SpotifyApi.ArtistsAlbumsResponse | null>(null);
 
   const handleSearch = async (searchTerm: string): Promise<void> => {
     console.log(`Searching for ${searchTerm}...`);
@@ -17,7 +16,7 @@ const Search = (): JSX.Element => {
   return (
     <>
       <SearchForm handleSearch={handleSearch} />
-      {JSON.stringify(searchResults)}
+      {searchResults ? JSON.stringify(searchResults) : null}
     </>
   );
 };
