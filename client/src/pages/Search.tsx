@@ -7,10 +7,12 @@ const Search = (): JSX.Element => {
     useState<SpotifyApi.ArtistsAlbumsResponse | null>(null);
 
   const handleSearch = async (searchTerm: string): Promise<void> => {
-    console.log(`Searching for ${searchTerm}...`);
-    const response = await axios.get(`/api/search/${searchTerm}`);
-    console.log(response.data);
-    setSearchResults(response.data);
+    try {
+      const response = await axios.get(`/api/search/${searchTerm}`);
+      setSearchResults(response.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
