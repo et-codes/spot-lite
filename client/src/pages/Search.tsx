@@ -11,8 +11,7 @@ const Search = (): JSX.Element => {
     searchType: string
   ): Promise<void> => {
     try {
-      console.log(searchTerm, searchType);
-      const response = await axios.get(`/api/search/${searchTerm}`);
+      const response = await axios.get(`/api/${searchType}/${searchTerm}`);
       setSearchResults(response.data);
     } catch (err) {
       console.error(err);

@@ -9,7 +9,11 @@ const SearchForm = ({ handleSearch }: SearchFormProps): JSX.Element => {
   const [search, setSearch] = useState<string>("");
   const [searchType, setSearchType] = useState<string>("Artist");
 
-  const searchTypes: string[] = ["Artist", "Album", "Song"];
+  const searchTypes = [
+    { label: "Artist", type: "artist" },
+    { label: "Album", type: "album" },
+    { label: "Song", type: "track" },
+  ];
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearch(event.target.value);
@@ -26,14 +30,14 @@ const SearchForm = ({ handleSearch }: SearchFormProps): JSX.Element => {
       <Row className="mb-3">
         <Col md="auto">
           <ButtonGroup>
-            {searchTypes.map<JSX.Element>((type) => (
+            {searchTypes.map<JSX.Element>(({ label, type }) => (
               <Button
                 key={type}
                 name={type}
                 variant={type === searchType ? "primary" : "outline-primary"}
                 onClick={(e) => setSearchType(e.currentTarget.name)}
               >
-                {type}
+                {label}
               </Button>
             ))}
           </ButtonGroup>
