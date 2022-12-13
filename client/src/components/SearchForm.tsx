@@ -5,11 +5,16 @@ interface SearchFormProps {
   handleSearch: (searchTerm: string, searchType: string) => void;
 }
 
+interface SearchType {
+  label: string;
+  type: string;
+}
+
 const SearchForm = ({ handleSearch }: SearchFormProps): JSX.Element => {
   const [search, setSearch] = useState<string>("");
   const [searchType, setSearchType] = useState<string>("Artist");
 
-  const searchTypes = [
+  const searchTypes: SearchType[] = [
     { label: "Artist", type: "artist" },
     { label: "Album", type: "album" },
     { label: "Song", type: "track" },
