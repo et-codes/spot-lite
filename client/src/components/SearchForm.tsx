@@ -17,7 +17,7 @@ const SearchForm = ({ handleSearch }: SearchFormProps): JSX.Element => {
 
   const handleSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
-    handleSearch(search, searchType);
+    handleSearch(search, searchType.toLowerCase());
     setSearch("");
   };
 
@@ -41,7 +41,7 @@ const SearchForm = ({ handleSearch }: SearchFormProps): JSX.Element => {
         <Col md={6}>
           <Form.Control
             type="text"
-            placeholder="Search for song, album, or artist"
+            placeholder="Search by song, album, or artist"
             onChange={handleChange}
             value={search}
           />
